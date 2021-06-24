@@ -53,6 +53,7 @@ public class TicTacToe implements ActionListener {
    // Constructor
    public TicTacToe(){
        // Establish connection
+       /*
        System.out.println("Please enter the IP: ");
        ip = scanner.nextLine();
        System.out.println("Please enter the port: ");
@@ -61,8 +62,9 @@ public class TicTacToe implements ActionListener {
            System.out.println("The port you entered was invalid, please enter another port: ");
            port = scanner.nextInt();
        }
+       */
        
-       if (!connect()) initializeServer();
+       // if (!connect()) initializeServer();
        
        // Build board GUI
        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -176,7 +178,6 @@ public class TicTacToe implements ActionListener {
                if(player1Turn && !unableToConnect) {
                    if (buttons[i].getText() == "") {
                        if (buttons[i] != null) {
-                           sendMove(i);
                            buttons[i].setForeground(new Color(255, 0, 0));
                            buttons[i].setText("X");
                            player1Turn = !player1Turn;
@@ -188,7 +189,6 @@ public class TicTacToe implements ActionListener {
                else {
                    if (buttons[i].getText() == "") {
                        if (buttons[i] != null) {
-                           sendMove(i);
                            buttons[i].setForeground(new Color(0, 0, 255));
                            buttons[i].setText("O");
                            player1Turn = !player1Turn;
@@ -241,21 +241,18 @@ public class TicTacToe implements ActionListener {
                oWins(firstSpot, secondSpot, thirdSpot);
                return;
            }
-           // Draw conditions
-           else {
-               for (int j = 0; j < 9; j++) {
-                   if (buttons[j].getText().length() == 1) {
-                       occupied.add(buttons[j].getText());
-                   }
-                   else {
-                       return;
-                   }
-               }
-               if (occupied.size() == 9) {
-                   drawGame();
-               }
-           }
-       }     
+       }
+        // Draw conditions
+        for (int j = 0; j < 9; j++) {
+            if (buttons[j].getText().length() == 1) {
+                occupied.add(buttons[j].getText());
+            } else {
+                return;
+            }
+        }
+        if (occupied.size() == 9) {
+            drawGame();
+        }
    }
    
    public void xWins(int a, int b, int c) {       
