@@ -7,7 +7,7 @@ A Tic-Tac-Toe game developed in Java with a GUI
 
 The quintsential 3x3 paper and pencil game has been re-created with the help of Java.
 
-Run the .jar file to start the game, which will randomly choose a player to start.
+Run the .jar file in dist/ to start the game, which will randomly choose a player to start.
 
 Click positions on the 3x3 grid to place a "Cirlce" or "Cross" and the first to connect 3 spots wins.
 
